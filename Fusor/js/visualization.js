@@ -55,7 +55,7 @@ var vizChannels = {
     'SENSORARRAY.gc3': {name: 'GC2 (outside) (cps)', shortname: 'GC3 outside', unit: 'cps', min: 0, max: 250, type: "discrete trailing", datatype: "numeric", graph: "yes"},
     'Heartbeat.beat': {name: 'Heartbeat', shortname: '', unit: '', min: 0, max: 50, type: "momentary", datatype: "numeric", graph: "yes"},
     //'Heartbeat.logsize': {name: 'Log size (kEntries)', shortname: 'LOGSIZE', unit: 'kEntries', min: 0, max: 10000, type: "discrete", datatype: "numeric"},
-    'Comment.text': {name: 'Comment', shortname: '', min: 0, max: 30, type: "momentary", datatype: "text"},
+    'Comment.text': {name: 'Comment', shortname: '', min: 0, max: 5, type: "momentary", datatype: "text", graph:"yes"},
     'Login.text': {name: 'Login', shortname: '', min: 0, max: 40, type: "momentary", datatype: "text"},
     'Command.text': {name: 'Command', shortname: '', min: 0, max: 20, type: "momentary", datatype: "text"}
 
