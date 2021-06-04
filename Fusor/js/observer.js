@@ -20,7 +20,7 @@ var loginInfo = "<unknown>";
 
 function getLogs() {
     if (offline) {
-        filename = prompt("Enter URL from github", "https://raw.githubusercontent.com/EastsidePreparatorySchool/FusorExperiments/master/logs/keep/fusor-2020-02-11T16-39-19-612Z_small-air-hv-test.json");
+        filename = prompt("Enter URL from github", "https://raw.githubusercontent.com/EastsidePreparatorySchool/EastsidePreparatorySchool.github.io/main/Fusor/logs/fusor-2021-06-03T16-25-12_repeat%20of%208kv%20plasma%20test.json");
         loadLog(filename, false);
     } else {
 //                    var list = document.getElementById("files");
