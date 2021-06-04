@@ -146,8 +146,8 @@ function displayLog(data, timestamp) {
     offlineLog = data;
     offline = true;
     updateStatus(data, null, timestamp);
-    document.getElementById("loadLog").innerText = "Live View";
-    document.getElementById("loadLog").onclick = displayLiveData;
+    // document.getElementById("loadLog").innerText = "Live View";
+    // document.getElementById("loadLog").onclick = displayLiveData;
     document.getElementById("comment").value = "<offline>";
     document.getElementById("comment").disabled = true;
     document.getElementById("commentbutton").disabled = true;
