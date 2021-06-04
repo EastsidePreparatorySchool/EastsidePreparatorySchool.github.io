@@ -5,21 +5,7 @@
 
 
 
-//
-// reset weblog observer
-//
-offline = false;
-request({url: "/resetobserver", method: "GET"})
-        .then(data => {
-            checkAdminControls();
-        })
-        .catch(error => {
-            console.log("error: " + error);
-            // switch to local browse mode only
-            offline = true;
-        });
-
-
+offline = true;
 
 //
 // reset admin controls
