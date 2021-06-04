@@ -36,7 +36,6 @@ function request(obj) {
             } else {
                 obj.url += "?";
             }
-            obj.url += "clientID=" + getClientID();
         }
 
         if (obj.async === undefined) {
