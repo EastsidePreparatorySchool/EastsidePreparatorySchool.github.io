@@ -240,12 +240,9 @@ function enableCameras() {
 // init code
 //
 
-
 createViz();
 createText();
-checkAdminControls();
-initStatus();
-enableCameras();
+
 
 
 
