@@ -20,7 +20,7 @@ var loginInfo = "<unknown>";
 
 function getLogs() {
     if (offline) {
-        filename = prompt("Enter ULR from github", "https://raw.githubusercontent.com/EastsidePreparatorySchool/FusorExperiments/master/logs/keep/fusor-2020-02-11T16-39-19-612Z_small-air-hv-test.json");
+        filename = prompt("Enter URL from github", "https://raw.githubusercontent.com/EastsidePreparatorySchool/FusorExperiments/master/logs/keep/fusor-2020-02-11T16-39-19-612Z_small-air-hv-test.json");
         loadLog(filename, false);
     } else {
 //                    var list = document.getElementById("files");
