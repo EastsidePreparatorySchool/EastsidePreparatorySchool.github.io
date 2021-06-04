@@ -176,6 +176,7 @@ function updateCorrespondingText(dataPoint) {
     var prior = findPrior(index, dataPoint.device);
     // now run that slice of data through the updater.
     updateViz(offlineLog.slice(prior, index + 1), true);
+    document.getElementById("logtime").innerText = datapoint.time.toFixed(2);
 }
 
 
