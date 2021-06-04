@@ -387,7 +387,6 @@ function updateViz(dataArray, textOnly) {
         // if someone was promoted to admin, update the controls
         // done with another pseudo-device
         if (devicename === "<promote>") {
-            checkAdminControls();
             continue;
         }
 

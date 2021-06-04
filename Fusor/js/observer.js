@@ -127,7 +127,7 @@ function loadLog(fileName, addPrefix) {
                 }
                 var data = JSON.parse(raw);
 
-                document.getElementById("logInfo").innerText = fileName.substr(filenName.lastIndexOf("/")+1);
+                document.getElementById("logInfo").innerText = fileName.substr(fileName.lastIndexOf("/")+1);
 
                 displayLog(data["log"], data["base-timestamp"]);
 
