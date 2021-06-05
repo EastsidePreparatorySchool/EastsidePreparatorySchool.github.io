@@ -31,7 +31,7 @@ var maxTime = 0;
 var vizChannels = {
     'RP.rp_in': {name: 'RP status', shortname: 'RP status', unit: '', min: 0, max: 2, type: "discrete", datatype: "boolean"},
     'TMP.tmp': {name: 'TMP status', shortname: 'TMP status', unit: '', min: 0, max: 2, type: "discrete", datatype: "boolean"},
-    'TMP.error': {name: 'TMP error', shortname: 'TMP error', unit: '', min: 0, max: 2, type: "discrete", datatype: "error"},
+    'TMP.error': {name: 'TMP error', shortname: 'TMP error', unit: '', min: 0, max: 2, type: "discrete", datatype: "error", graph:"yes"},
     'TMP.lowspeed': {name: 'TMP lowspeed', shortname: 'TMP lowspeed', unit: '', min: 0, max: 2, type: "discrete", datatype: "boolean"},
     'TMP.pump_freq': {name: 'TMP frequency (Hz)', shortname: 'TMP drv freq', unit: 'Hz', min: 0, max: 1250, type: "continuous", datatype: "numeric", graph: "yes"},
     'TMP.pump_curr_amps': {name: 'TMP current (A)', shortname: 'TMP amps', unit: 'A', min: 0, max: 2.5, type: "continuous", datatype: "numeric", graph: "yes"},
