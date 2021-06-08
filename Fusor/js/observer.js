@@ -115,7 +115,7 @@ function loadLog(fileName, addPrefix) {
     }
 
     if (offline) {
-        url = "/fusor/logs/"+fileName;
+        url = "/Fusor/logs/"+fileName;
     } else {
         url = "/protected/getlogfile?filename=" + fileName;
     }
