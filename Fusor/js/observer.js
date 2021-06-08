@@ -115,7 +115,7 @@ function loadLog(fileName, addPrefix) {
     }
 
     if (offline) {
-        url = fileName;
+        url = "/logs/"+fileName;
     } else {
         url = "/protected/getlogfile?filename=" + fileName;
     }
