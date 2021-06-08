@@ -31,13 +31,13 @@ var maxTime = 0;
 var vizChannels = {
     'RP.rp_in': {name: 'RP status', shortname: 'RP status', unit: '', min: 0, max: 2, type: "discrete", datatype: "boolean"},
     'TMP.tmp': {name: 'TMP status', shortname: 'TMP status', unit: '', min: 0, max: 2, type: "discrete", datatype: "boolean"},
-    'TMP.error': {name: 'TMP error', shortname: 'TMP error', unit: '', min: 0, max: 2, type: "discrete", datatype: "error", graph:"yes"},
+    'TMP.error': {name: 'TMP error', shortname: 'TMP error', unit: '', min: 0, max: 2, type: "discrete", datatype: "error", graph:"yes", visible:false},
     'TMP.lowspeed': {name: 'TMP lowspeed', shortname: 'TMP lowspeed', unit: '', min: 0, max: 2, type: "discrete", datatype: "boolean"},
     'TMP.pump_freq': {name: 'TMP frequency (Hz)', shortname: 'TMP drv freq', unit: 'Hz', min: 0, max: 1250, type: "continuous", datatype: "numeric", graph: "yes"},
     'TMP.pump_curr_amps': {name: 'TMP current (A)', shortname: 'TMP amps', unit: 'A', min: 0, max: 2.5, type: "continuous", datatype: "numeric", graph: "yes"},
     'PIRANI.p2': {name: 'Piezo relative pressure', shortname: 'P piezo rel', unit: 'Torr', factor: 1, min: -770, max: 0, type: "continuous", datatype: "numeric", graph: "yes"},
     'PIRANI.p3': {name: 'Pirani pressure (coarse)', shortname: 'P abs coarse', unit: 'mTorr', factor: 1000, min: 0, max: 500, type: "continuous", datatype: "numeric", graph: "yes"},
-    'PIRANI.p4': {name: 'Pirani pressure (fine)', shortname: 'P abs fine', unit: 'mTorr', factor: 1000, min: 0, max: 100, type: "continuous", datatype: "numeric", graph: "yes"},
+    'PIRANI.p4': {name: 'Pirani pressure (fine)', shortname: 'P abs fine', unit: 'mTorr', factor: 1000, min: 0, max: 100, type: "continuous", datatype: "numeric", graph: "yes", visible:true},
     'GAS.sol_in': {name: 'Solenoid status', shortname: 'SOL status', unit: '', min: 0, max: 3, type: "discrete", datatype: "boolean"},
     'GAS.nv_in': {name: 'Needle valve percent', shortname: 'NV %', unit: '%', min: 0, max: 100, type: "discrete", datatype: "numeric", graph: "yes"},
     'HV-RELAY.in': {name: 'Variac relay', shortname: 'VAR relay', unit: '', min: 0, max: 1.8, type: "discrete", datatype: "boolean"},
@@ -46,18 +46,18 @@ var vizChannels = {
     'HV-LOWSIDE.n': {name: 'Variac samples', shortname: 'VAR samples', unit: '', min: 0, max: 1000, type: "discrete", datatype: "numeric"},
     'HV-LOWSIDE.variac_rms': {name: 'Variac RMS (V)', shortname: 'VAR rms', unit: 'V', min: 0, max: 130, type: "continuous", datatype: "numeric", graph: "yes"},
     'HV-LOWSIDE.nst_rms': {name: 'NST RMS (kV)', shortname: 'NST rms', unit: 'kV', min: 0, max: 8, type: "continuous", datatype: "numeric", graph: "yes"},
-    'HV-LOWSIDE.cw_avg': {name: 'CW ABS AVG (kV)', shortname: 'CW abs voltage', unit: 'kV', min: 0, max: 50, factor: -1, type: "continuous", datatype: "numeric", graph: "yes"},
-    'HV-LOWSIDE.cwc_avg': {name: 'CW current (mA)', shortname: 'CW current', unit: 'mA', min: 0, max: 10, type: "continuous", datatype: "numeric", graph: "yes"},
-    'PN-JUNCTION.total': {name: 'Photons PNJ (ADC)', shortname: 'PN-J', unit: 'ADC raw', min: 0, max: 1023, type: "continuous", datatype: "numeric", graph: "yes"},
-    'SENSORARRAY.pin': {name: 'Photons PIN (uSv/h)', shortname: 'PIN', unit: 'uSv/h', min: 0, max: 100, type: "continuous", datatype: "numeric", graph: "yes"},
-    'SENSORARRAY.gc1': {name: 'GC1 (Whitmer, inside) (cps)', shortname: 'GC1 (W) inside', unit: 'cps', min: 0, max: 100, type: "discrete trailing", datatype: "numeric", graph: "yes"},
-    'SENSORARRAY.gc2': {name: 'GC2 (inside) (cps)', shortname: 'GC2 inside', unit: 'cps', min: 0, max: 250, type: "discrete trailing", datatype: "numeric", graph: "yes"},
-    'SENSORARRAY.gc3': {name: 'GC2 (outside) (cps)', shortname: 'GC3 outside', unit: 'cps', min: 0, max: 250, type: "discrete trailing", datatype: "numeric", graph: "yes"},
+    'HV-LOWSIDE.cw_avg': {name: 'CW ABS AVG (kV)', shortname: 'CW abs voltage', unit: 'kV', min: 0, max: 50, factor: -1, type: "continuous", datatype: "numeric", graph: "yes", visible:true},
+    'HV-LOWSIDE.cwc_avg': {name: 'CW current (mA)', shortname: 'CW current', unit: 'mA', min: 0, max: 10, type: "continuous", datatype: "numeric", graph: "yes", visible:true},
+    'PN-JUNCTION.total': {name: 'Photons PNJ (ADC)', shortname: 'PN-J', unit: 'ADC raw', min: 0, max: 1023, type: "continuous", datatype: "numeric", graph: "yes", visible:true},
+    'SENSORARRAY.pin': {name: 'Photons PIN (uSv/h)', shortname: 'PIN', unit: 'uSv/h', min: 0, max: 100, type: "continuous", datatype: "numeric", graph: "yes", visible:true},
+    'SENSORARRAY.gc1': {name: 'GC1 (Whitmer, inside) (cps)', shortname: 'GC1 (W) inside', unit: 'cps', min: 0, max: 100, type: "discrete trailing", datatype: "numeric", graph: "yes", visible:true},
+    'SENSORARRAY.gc2': {name: 'GC2 (inside) (cps)', shortname: 'GC2 inside', unit: 'cps', min: 0, max: 250, type: "discrete trailing", datatype: "numeric", graph: "yes", visible:true},
+    'SENSORARRAY.gc3': {name: 'GC2 (outside) (cps)', shortname: 'GC3 outside', unit: 'cps', min: 0, max: 250, type: "discrete trailing", datatype: "numeric", graph: "yes", visible:true},
     'Heartbeat.beat': {name: 'Heartbeat', shortname: '', unit: '', min: 0, max: 50, type: "momentary", datatype: "numeric", graph: "yes"},
     //'Heartbeat.logsize': {name: 'Log size (kEntries)', shortname: 'LOGSIZE', unit: 'kEntries', min: 0, max: 10000, type: "discrete", datatype: "numeric"},
-    'Comment.text': {name: 'Comment', shortname: '', min: 0, max: 5, type: "momentary", datatype: "text", graph:"yes"},
+    'Comment.text': {name: 'Comment', shortname: '', min: 0, max: 5, type: "momentary", datatype: "text", graph:"yes", visible:true},
     'Login.text': {name: 'Login', shortname: '', min: 0, max: 40, type: "momentary", datatype: "text"},
-    'Command.text': {name: 'Command', shortname: '', min: 0, max: 20, type: "momentary", datatype: "text"}
+    'Command.text': {name: 'Command', shortname: '', min: 0, max: 20, type: "momentary", datatype: "text", visible:true}
 
 };
 //
@@ -147,7 +147,8 @@ function createVizCanvasJS() {
                 name: vizChannels[channel].name,
                 showInLegend: true,
                 dataPoints: [],
-                markerType: "none"
+                markerType: "none",
+                visible:vizChannels[channel]['visible']
             };
             vizData.push(dataSeries);
             vizChannels[channel].dataSeries = dataSeries;
