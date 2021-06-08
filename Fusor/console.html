@@ -9,7 +9,7 @@
             <div class="fheader">
                 Fusor Console:&nbsp;<span id="loginInfo"></span>:&nbsp;"<span id="logInfo">Unnamed</span>"
             </div>
-            <div class="fcontrol">
+            <div class="fcontrol" >
                 <button style="width:19.5%" disabled id="startLog" class="btn btn-primary btn-large" onclick="startLog()">Start New Log</button>
                 <button id="saveLog" disabled class="btn btn-primary btn-large" style="width:19.5%;border:2px solid black" onclick="saveLog()">Save Log</button>
                 <button id="getStatus" style="width:19.5%" disabled class="btn btn-primary btn-large" onclick="getOneStatus()">Get Status</button>
@@ -19,7 +19,7 @@
             <div class="ftime" style="text-align:right">
                 Current Log Time:&nbsp;<span id="logtime">0:00</span>&nbsp;s
             </div>
-            <div class="fdevices" style="text-align: left">
+            <div class="fdevices" style="text-align: left; display:none;">
                 <div>
                     RP:<br>
                     <button disabled class="btn btn-primary btn-large" id="rpon" style="width: 48%; background-color: #39a82a;" onclick="rpOn()">On</button>
@@ -61,21 +61,21 @@
                 </div>
 
             </div>
-            <div class="fchart" id="fchart">
-                <div id="chartContainer">
+            <div class="fchart" id="fchart" style="height:100%">
+                <div id="chartContainer"  style="height:100%">
                 </div>
             </div>
             <div class="ftext" style="overflow-y:hidden">
                 <p id="data" style="margin: 0px; overflow-y:scroll; width:100%; height:100%; white-space: nowrap; overflow-x: hidden;font-size: medium;font-family: 'Courier New', Courier, monospace;"></p>
             </div>
-            <div class="fchat">
+            <div class="fchat" style="display:none">
                 <p id="chat" style="margin: 0px; overflow-y:scroll; width:100%; height:100%; white-space: nowrap; overflow-x: auto;font-size:smaller;"></p>
             </div>
-            <div class="fcamview" onclick="window.open('cameras.html', 'popup_window', 'width=1920,height=1040'); return false;">
+            <div class="fcamview" style="display:none" onclick="window.open('cameras.html', 'popup_window', 'width=1920,height=1040'); return false;">
                 <img id="cam1" style="width:48%;height:100%;display:none;padding:0%" src="">
                 <img id="cam2" style="width:48%;height:100%;display:none;padding:0%" src="">
             </div>
-            <div class="finput">
+            <div class="finput" style="display:none">
                 <form method="post" onsubmit="return submitComment(this);">
                     <input autocomplete="off"  id="comment" style="width:90%" autofocus type="text" name="text" placeholder="type a comment ..." required="required" />
                     <button id="commentbutton" class="btn btn-primary btn-large" style="width:8%" type="submit">Send</button>
