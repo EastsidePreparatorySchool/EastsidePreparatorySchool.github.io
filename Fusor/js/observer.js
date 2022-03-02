@@ -135,13 +135,13 @@ function loadLog(fileName, addPrefix) {
         input.onchange = e => { 
             // get the file reference
             var file = e.target.files[0]; 
-
             // setting up the reader
             var reader = new FileReader();
             reader.readAsText(file, 'UTF-8');
 
             // here we tell the reader what to do when it's done reading...
             reader.onload = readerEvent => {
+                console.log("Loading log: " + file.name);
                 var fileContent = readerEvent.target.result;
                 var data = JSON.parse(fileContent);
                 document.getElementById("logInfo").innerText = file.name;
