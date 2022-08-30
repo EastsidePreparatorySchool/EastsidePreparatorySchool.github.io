@@ -20,8 +20,7 @@ var loginInfo = "<unknown>";
 
 function getLogs() {
     if (offline) {
-        filename = prompt("Enter URL from github", "fusor-2021-06-03T16-25-12_repeat%20of%208kv%20plasma%20test.json");
-        loadLog(filename, false);
+        loadLog('', false);
     } else {
 //                    var list = document.getElementById("files");
 //                    var listDiv = document.getElementById("filesdiv");
@@ -99,27 +98,60 @@ function emergency_stop() {
     }
 }
 
-
 function loadServerLog(input) {
     loadLog(input.text, true);
 }
 
 
 function loadLog(fileName, addPrefix) {
-
     stopStatus();
-    console.log("loading log: " + fileName);
-    if (fileName === "[sample log]") {
-        displayLog(fullData, fullData[0]["servertime"]);
-        return;
-    }
+    /////////////////////////////////////////////////////
+    // BEGIN DEAD CODE - I was told not to remove this
+    //console.log("loading log: " + fileName);
+    //if (fileName === "[sample log]") {
+    //    displayLog(fullData, fullData[0]["servertime"]);
+    //    return;
+    //}
+    // END DEAD CODE
+    /////////////////////////////////////////////////////
+
 
     if (offline) {
-        url = "/Fusor/logs/"+fileName;
+        /////////////////////////////////////////////////////
+        // BEGIN DEAD CODE - I was told not to remove this
+        //url = "/Fusor/logs/"+fileName;
+        // END DEAD CODE
+        /////////////////////////////////////////////////////
     } else {
         url = "/protected/getlogfile?filename=" + fileName;
     }
 
+    if(offline) {
+        // file dialog JavaScript code taken from here
+        // https://stackoverflow.com/a/40971885
+        var input = document.createElement('input');
+        input.type = 'file';
+
+        input.onchange = e => { 
+            // get the file reference
+            var file = e.target.files[0]; 
+            // setting up the reader
+            var reader = new FileReader();
+            reader.readAsText(file, 'UTF-8');
+
+            // here we tell the reader what to do when it's done reading...
+            reader.onload = readerEvent => {
+                console.log("Loading log: " + file.name);
+                var fileContent = readerEvent.target.result;
+                var data = JSON.parse(fileContent);
+                document.getElementById("logInfo").innerText = file.name;
+                displayLog(data["log"], data["base-timestamp"])
+            }
+        }
+
+        input.click();
+        return;
+    }
     request({url: url, method: "GET"})
             .then(raw => {
                 if (raw.endsWith("},\n")) {
@@ -220,18 +252,9 @@ function enableCameras() {
             });
 }
 
-
-
 //
 // init code
 //
 
 createViz();
 createText();
-
-
-
-
-
-
-        
